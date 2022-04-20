@@ -53,7 +53,7 @@ contract ERC20Token is BasicToken, ERC20 {
 	mapping (address => mapping (address => uint256)) public allowed;
 	
 	function approve(address _spender, uint256 _value) public returns (bool) {
-		require(_value == 0 || allowed[msg.sender][_spender] == 0, "ERC20: The amount must not be zero.");
+		require(_value == 0 || allowed[msg.sender][_spender] == 0, "ERC20: value=0 or allowance=0");
 		allowed[msg.sender][_spender] = _value;
 		emit Approval(msg.sender, _spender, _value);
 		
